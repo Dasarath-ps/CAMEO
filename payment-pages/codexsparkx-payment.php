@@ -34,17 +34,19 @@ $returnLink = '../codexsparkx.php';
         <div class="upi-options">
 
             <!-- UPI Option -->
-            <div class="upi-card">
+            <a href="upi://pay?pa=dhasarathps@okhdfcbank&pn=Dhasarath%20ps&cu=INR"
+            class="upi-card">
                 <img src="../asset/payment-QR/codexsparkx/dasarthQr.jpg" alt="dasarath Qr">
                 <p>UPI ID:</p>
                 <strong>dhasarathps@okhdfcbank</strong>
-            </div>
+            </a>
              <!-- UPI Option -->
-            <div class="upi-card">
+            <a href="upi://pay?pa=devikadinesh86-2@okaxis&pn=Devika%20Dinesh&cu=INR"
+            class="upi-card">
                 <img src="../asset/payment-QR/codexsparkx/devikaQr.jpg" alt="devika Qr">
                 <p>UPI ID:</p>
                 <strong>devikadinesh86-2@okaxis</strong>
-            </div>
+            </a>
             
    
            </div>

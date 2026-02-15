@@ -3,9 +3,15 @@
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center">
-                    <img style="height:60px;width:140px" src="../asset/img/logo1.jpeg" alt="Nirmala college">
-                    <div class="h-12 w-px bg-white mx-3"></div>
-                    <img style="height:60px;width:140px" src="../asset/img/logo2.jpeg" alt="Loding...">
+                    <img style="height:60px;width:140px" 
+     src="../asset/img/logo1.jpeg" 
+     onerror="this.src='./asset/img/logo1.jpeg'" 
+     alt="Nirmala college">
+<div class="h-12 w-px bg-white mx-3"></div>
+<img style="height:60px;width:140px" 
+     src="../asset/img/logo2.jpeg" 
+     onerror="this.src='./asset/img/logo2.jpeg'" 
+     alt="ican">
                 </div>
                 <p class="text-slate-500 max-w-md leading-relaxed mb-6">
                     The annual technical festival organized by the MCA Department of Nirmala College Muvattupuzha. Celebrating innovation since 2026.
@@ -38,6 +44,6 @@
             </div>
         </div>
         <div class="text-center border-t border-white/5 pt-8">
-            <p class="text-slate-700 text-xs tracking-widest">© 2026 CAMEO SYSTEM. ALL RIGHTS RESERVED. | MCA DEPT</p>
+            <p class="text-slate-700 text-xs tracking-widest">© 2026 CAMEO . ALL RIGHTS RESERVED. | MCA DEPT</p>
         </div>
     </footer>

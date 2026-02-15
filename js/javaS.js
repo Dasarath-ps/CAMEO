@@ -1,9 +1,9 @@
 /**
-       * CAMEO 2026 SYSTEM CORE
-       * Handles: Canvas Animation, Custom Cursor, Scroll Effects, Countdown, Loader, Hacker Text
-       */
+ * CAMEO 2026 SYSTEM CORE
+ * Handles: Canvas Animation, Custom Cursor, Scroll Effects, Countdown, Loader, Hacker Text
+ */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   initSystem();
 });
 
@@ -20,8 +20,8 @@ function initSystem() {
 
 // --- 1. SYSTEM LOADER (FIXED) ---
 function initLoader() {
-  const loader = document.getElementById('system-loader');
-  const text = document.getElementById('loader-text');
+  const loader = document.getElementById("system-loader");
+  const text = document.getElementById("loader-text");
 
   // Guard: if either element doesn't exist, exit early
   if (!loader || !text) return;
@@ -35,8 +35,8 @@ function initLoader() {
       clearInterval(interval);
       text.innerText = "SYSTEM READY";
       setTimeout(() => {
-        loader.style.opacity = '0';
-        loader.style.pointerEvents = 'none';
+        loader.style.opacity = "0";
+        loader.style.pointerEvents = "none";
         setTimeout(() => {
           loader.remove();
         }, 800);
@@ -47,8 +47,8 @@ function initLoader() {
 
 // --- 2. CANVAS PARTICLE NETWORK ---
 function initCanvas() {
-  const canvas = document.getElementById('main-canvas');
-  const ctx = canvas.getContext('2d');
+  const canvas = document.getElementById("main-canvas");
+  const ctx = canvas.getContext("2d");
 
   let width, height;
   let particles = [];
@@ -58,7 +58,7 @@ function initCanvas() {
     particleCount: window.innerWidth < 768 ? 60 : 120,
     connectionDist: 150,
     mouseDist: 200,
-    baseSpeed: 0.3
+    baseSpeed: 0.3,
   };
 
   let mouse = { x: null, y: null };
@@ -70,8 +70,8 @@ function initCanvas() {
     initParticles();
   }
 
-  window.addEventListener('resize', resize);
-  window.addEventListener('mousemove', (e) => {
+  window.addEventListener("resize", resize);
+  window.addEventListener("mousemove", (e) => {
     mouse.x = e.x;
     mouse.y = e.y;
   });
@@ -83,7 +83,8 @@ function initCanvas() {
       this.vx = (Math.random() - 0.5) * config.baseSpeed;
       this.vy = (Math.random() - 0.5) * config.baseSpeed;
       this.size = Math.random() * 2 + 1;
-      this.color = Math.random() > 0.5 ? 'rgba(0, 243, 255,' : 'rgba(188, 19, 254,'; // Cyan or Purple
+      this.color =
+        Math.random() > 0.5 ? "rgba(0, 243, 255," : "rgba(188, 19, 254,"; // Cyan or Purple
     }
 
     update() {
@@ -113,7 +114,7 @@ function initCanvas() {
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = this.color + '0.8)';
+      ctx.fillStyle = this.color + "0.8)";
       ctx.fill();
     }
   }
@@ -140,7 +141,7 @@ function initCanvas() {
 
         if (distance < config.connectionDist) {
           ctx.beginPath();
-          let opacity = 1 - (distance / config.connectionDist);
+          let opacity = 1 - distance / config.connectionDist;
           ctx.strokeStyle = `rgba(100, 100, 150, ${opacity * 0.2})`;
           ctx.lineWidth = 1;
           ctx.moveTo(particles[i].x, particles[i].y);
@@ -158,67 +159,92 @@ function initCanvas() {
 
 // --- 3. ADVANCED CURSOR ---
 function initCursor() {
-  const dot = document.querySelector('.cursor-dot');
-  const outline = document.querySelector('.cursor-outline');
-  const trail = document.querySelector('.cursor-trail');
-  const targets = document.querySelectorAll('.interactive-hover, a, button');
+  const dot = document.querySelector(".cursor-dot");
+  const outline = document.querySelector(".cursor-outline");
+  const trail = document.querySelector(".cursor-trail");
+  const targets = document.querySelectorAll(".interactive-hover, a, button");
 
-  document.addEventListener('mousemove', (e) => {
+  document.addEventListener("mousemove", (e) => {
     // Instant Dot
     dot.style.left = `${e.clientX}px`;
     dot.style.top = `${e.clientY}px`;
 
     // Smooth Outline
-    outline.animate({
-      left: `${e.clientX}px`,
-      top: `${e.clientY}px`
-    }, { duration: 500, fill: "forwards" });
+    outline.animate(
+      {
+        left: `${e.clientX}px`,
+        top: `${e.clientY}px`,
+      },
+      { duration: 500, fill: "forwards" },
+    );
 
     // Lagging Trail
-    trail.animate({
-      left: `${e.clientX}px`,
-      top: `${e.clientY}px`
-    }, { duration: 100, fill: "forwards" });
+    trail.animate(
+      {
+        left: `${e.clientX}px`,
+        top: `${e.clientY}px`,
+      },
+      { duration: 100, fill: "forwards" },
+    );
   });
 
   // Hover States
-  targets.forEach(target => {
-    target.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-    target.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+  targets.forEach((target) => {
+    target.addEventListener("mouseenter", () =>
+      document.body.classList.add("hovering"),
+    );
+    target.addEventListener("mouseleave", () =>
+      document.body.classList.remove("hovering"),
+    );
   });
 }
 
 // --- 4. SCROLL REVEAL OBSERVER ---
 function initScrollReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        // Optional: stop observing once revealed
-        // observer.unobserve(entry.target); 
-      }
-    });
-  }, { threshold: 0.1 });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          // Optional: stop observing once revealed
+          // observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
 
-  document.querySelectorAll('.reveal-element, .reveal-scale').forEach(el => observer.observe(el));
+  document
+    .querySelectorAll(".reveal-element, .reveal-scale")
+    .forEach((el) => observer.observe(el));
 
   // Navbar Background on Scroll
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
+  const navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
-      navbar.classList.add('bg-black/80', 'backdrop-blur-lg', 'shadow-lg', 'py-4');
+      navbar.classList.add(
+        "bg-black/80",
+        "backdrop-blur-lg",
+        "shadow-lg",
+        "py-4",
+      );
     } else {
-      navbar.classList.remove('bg-black/80', 'backdrop-blur-lg', 'shadow-lg', 'py-4');
+      navbar.classList.remove(
+        "bg-black/80",
+        "backdrop-blur-lg",
+        "shadow-lg",
+        "py-4",
+      );
     }
   });
 }
 
 // --- 5. COUNTDOWN TIMER (FIXED) ---
 function initCountdown() {
-  const daysEl = document.getElementById('days');
-  const hoursEl = document.getElementById('hours');
-  const minutesEl = document.getElementById('minutes');
-  const secondsEl = document.getElementById('seconds');
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+  const secondsEl = document.getElementById("seconds");
 
   // Guard: if any countdown element is missing, exit early
   if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
@@ -235,7 +261,9 @@ function initCountdown() {
     }
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+    );
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -248,57 +276,60 @@ function initCountdown() {
 
 // --- 6. NUMBER COUNTER ANIMATION ---
 function initCounters() {
-  const counters = document.querySelectorAll('.counter');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const counter = entry.target;
-        const target = +counter.getAttribute('data-target');
-        const duration = 2000;
-        const increment = target / (duration / 16);
+  const counters = document.querySelectorAll(".counter");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = +counter.getAttribute("data-target");
+          const duration = 2000;
+          const increment = target / (duration / 16);
 
-        let current = 0;
-        const updateCounter = () => {
-          current += increment;
-          if (current < target) {
-            counter.innerText = Math.ceil(current);
-            requestAnimationFrame(updateCounter);
-          } else {
-            counter.innerText = target;
-          }
-        };
-        updateCounter();
-        observer.unobserve(counter);
-      }
-    });
-  }, { threshold: 0.5 });
+          let current = 0;
+          const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+              counter.innerText = Math.ceil(current);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCounter();
+          observer.unobserve(counter);
+        }
+      });
+    },
+    { threshold: 0.5 },
+  );
 
-  counters.forEach(c => observer.observe(c));
+  counters.forEach((c) => observer.observe(c));
 }
 
 // --- 7. MOBILE MENU ---
 function initMobileMenu() {
-  const btn = document.getElementById('mobile-toggle');
-  const menu = document.getElementById('mobile-menu');
-  const links = document.querySelectorAll('.mobile-link');
+  const btn = document.getElementById("mobile-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const links = document.querySelectorAll(".mobile-link");
 
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('translate-x-full');
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("translate-x-full");
   });
 
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.add('translate-x-full');
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.add("translate-x-full");
     });
   });
 }
 
 // --- 8. 3D TILT EFFECT ---
 function initTiltEffect() {
-  const cards = document.querySelectorAll('.tilt-card');
+  const cards = document.querySelectorAll(".tilt-card");
 
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
+  cards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -312,7 +343,7 @@ function initTiltEffect() {
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
 
-    card.addEventListener('mouseleave', () => {
+    card.addEventListener("mouseleave", () => {
       card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
     });
   });
@@ -321,8 +352,8 @@ function initTiltEffect() {
 // --- 9. HACKER TEXT DECODER (Bonus) ---
 // Finds elements with .glitch class or specific spans and randomizes text on load
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-document.querySelectorAll('.glitch').forEach(element => {
-  element.onmouseover = event => {
+document.querySelectorAll(".glitch").forEach((element) => {
+  element.onmouseover = (event) => {
     let iteration = 0;
     const originalText = event.target.dataset.text;
 
@@ -333,7 +364,7 @@ document.querySelectorAll('.glitch').forEach(element => {
         .split("")
         .map((letter, index) => {
           if (index < iteration) return originalText[index];
-          return letters[Math.floor(Math.random() * 26)]
+          return letters[Math.floor(Math.random() * 26)];
         })
         .join("");
 
@@ -343,9 +374,8 @@ document.querySelectorAll('.glitch').forEach(element => {
 
       iteration += 1 / 3;
     }, 30);
-  }
+  };
 });
-
 
 function sendMessage() {
   const input = document.getElementById("userInput");
@@ -354,7 +384,8 @@ function sendMessage() {
 
   addMessage("You", input.value);
 
-  let reply = "I’m not sure 🤔 Try asking about events, date, time, prize or registration.";
+  let reply =
+    "I’m not sure 🤔 Try asking about events, date, time, prize or registration.";
 
   if (hasAny(text, ["hi", "hello", "hey"]))
     reply = `
@@ -370,22 +401,17 @@ function sendMessage() {
     "When is the fest?"
     "What is the prize money?"
     `;
-
   else if (hasAny(text, ["event", "competition", "contest", "program"]))
-    reply = "We have  events:- Hackathon - EvolveX,Tresure Hunt - Opti Quest ,CSS coding - Style FormerX ,Debugging Challenge - CodeSparkX ,Online Games - Cyber Clash ,Reels Competition - Zyreel ,Photography -PiXora and ,Spot choreo-Byte Beatzz ";
-
+    reply =
+      "We have  events:- Hackathon - EvolveX,Tresure Hunt - Opti Quest ,CSS coding - Style FormerX ,Debugging Challenge - CodeSparkX ,Online Games - Cyber Clash ,Reels Competition - Zyreel ,Photography -PiXora and ,Spot choreo-Byte Beatzz ";
   else if (hasAny(text, ["date", "day", "when"]))
     reply = "Events start at **8:00 AM** on **February 20, 2026**.";
-
   else if (hasAny(text, ["time", "timing", "start", "schedule"]))
     reply = "Events start at **8:00 AM**.";
-
   else if (hasAny(text, ["prize", "reward", "money", "cash"]))
     reply = "Total Prize: 50,500💰";
-
   else if (hasAny(text, ["register", "registration", "apply", "join"]))
     reply = "You can register using the link on the homepage.";
-
   else if (hasAny(text, ["venue", "location", "where", "place"]))
     reply = "Nirmala College, Muvattupuzha | MCA Department";
 
@@ -394,7 +420,7 @@ function sendMessage() {
 }
 
 function hasAny(text, keywords) {
-  return keywords.some(word => text.includes(word));
+  return keywords.some((word) => text.includes(word));
 }
 
 function typeWriter(element, text, speed = 25) {
@@ -410,7 +436,6 @@ function typeWriter(element, text, speed = 25) {
 
   typing();
 }
-
 
 function addMessage(sender, message, isTyping = false) {
   const chat = document.getElementById("chatMessages");
@@ -430,9 +455,6 @@ function addMessage(sender, message, isTyping = false) {
   chat.scrollTop = chat.scrollHeight;
 }
 
-
-
-
 const chatToggle = document.getElementById("chatToggle");
 const chatWindow = document.getElementById("chatWindow");
 const closeChat = document.getElementById("closeChat");
@@ -446,9 +468,9 @@ closeChat.onclick = () => {
 };
 
 /*GET IN TOUCH*/
-const cards = document.querySelectorAll('.tilt-card');
-cards.forEach(card => {
-  card.addEventListener('mousemove', e => {
+const cards = document.querySelectorAll(".tilt-card");
+cards.forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -458,22 +480,27 @@ cards.forEach(card => {
     const rotateY = ((x - centerX) / centerX) * 10;
     card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   });
-  card.addEventListener('mouseleave', () => card.style.transform = `rotateX(0deg) rotateY(0deg)`);
+  card.addEventListener(
+    "mouseleave",
+    () => (card.style.transform = `rotateX(0deg) rotateY(0deg)`),
+  );
 });
 
 /* share button */
 function shareZyreel() {
   const shareData = {
-    title: 'ZYREEL – Reel Making Competition',
-    text: 'One Reel. Unlimited Impact. Join ZYREEL at CAMEO IT Fest 🎬✨',
-    url: window.location.href
+    title: "ZYREEL – Reel Making Competition",
+    text: "One Reel. Unlimited Impact. Join ZYREEL at CAMEO IT Fest 🎬✨",
+    url: window.location.href,
   };
 
   if (navigator.share) {
-    navigator.share(shareData)
-      .catch(err => console.log("Share cancelled:", err));
+    navigator
+      .share(shareData)
+      .catch((err) => console.log("Share cancelled:", err));
   } else {
-    navigator.clipboard.writeText(shareData.url)
+    navigator.clipboard
+      .writeText(shareData.url)
       .then(() => alert("Event link copied to clipboard ✅"))
       .catch(() => prompt("Copy this link:", shareData.url));
   }
@@ -481,16 +508,18 @@ function shareZyreel() {
 
 function shareStyleFormerX() {
   const shareData = {
-    title: 'StyleFormerX – CSS Design Challenge',
-    text: 'Design. Style. Precision. Join StyleFormerX at CAMEO IT Fest 🎨✨',
-    url: window.location.href
+    title: "StyleFormerX – CSS Design Challenge",
+    text: "Design. Style. Precision. Join StyleFormerX at CAMEO IT Fest 🎨✨",
+    url: window.location.href,
   };
 
   if (navigator.share) {
-    navigator.share(shareData)
-      .catch(err => console.log("Share cancelled:", err));
+    navigator
+      .share(shareData)
+      .catch((err) => console.log("Share cancelled:", err));
   } else {
-    navigator.clipboard.writeText(shareData.url)
+    navigator.clipboard
+      .writeText(shareData.url)
       .then(() => alert("Event link copied to clipboard ✅"))
       .catch(() => prompt("Copy this link:", shareData.url));
   }
@@ -499,9 +528,9 @@ function shareStyleFormerX() {
 function sharePixora() {
   if (navigator.share) {
     navigator.share({
-      title: 'PiXora – Photography Event',
-      text: 'Join PiXora at CAMEO IT Fest 📸',
-      url: window.location.href
+      title: "PiXora – Photography Event",
+      text: "Join PiXora at CAMEO IT Fest 📸",
+      url: window.location.href,
     });
   } else {
     alert("Sharing not supported on this browser.");
@@ -511,9 +540,9 @@ function sharePixora() {
 function shareEvent() {
   if (navigator.share) {
     navigator.share({
-      title: 'EvolveX Hackathon',
-      text: 'Join the EvolveX Hackathon at Cameo 2026!',
-      url: window.location.href
+      title: "EvolveX Hackathon",
+      text: "Join the EvolveX Hackathon at Cameo 2026!",
+      url: window.location.href,
     });
   } else {
     alert("Sharing not supported on this browser.");
@@ -522,27 +551,27 @@ function shareEvent() {
 
 function shareBGMI() {
   const shareData = {
-    title: 'Cyber Clash – BGMI',
-    text: 'Enter the battleground. Compete in BGMI at Cyber Clash 🎮🔥',
-    url: window.location.href
+    title: "Cyber Clash – BGMI",
+    text: "Enter the battleground. Compete in BGMI at Cyber Clash 🎮🔥",
+    url: window.location.href,
   };
   handleShare(shareData);
 }
 
 function shareEFootball() {
   const shareData = {
-    title: 'Cyber Clash – E-Football',
-    text: 'Show your football skills in E-Football at Cyber Clash ⚽🎮',
-    url: window.location.href
+    title: "Cyber Clash – E-Football",
+    text: "Show your football skills in E-Football at Cyber Clash ⚽🎮",
+    url: window.location.href,
   };
   handleShare(shareData);
 }
 
 function shareMiniMilitia() {
   const shareData = {
-    title: 'Cyber Clash – Mini Militia',
-    text: 'Fast. Tactical. Explosive. Join Mini Militia at Cyber Clash 💣🎮',
-    url: window.location.href
+    title: "Cyber Clash – Mini Militia",
+    text: "Fast. Tactical. Explosive. Join Mini Militia at Cyber Clash 💣🎮",
+    url: window.location.href,
   };
   handleShare(shareData);
 }
@@ -550,10 +579,10 @@ function shareMiniMilitia() {
 /* Reusable Share Handler */
 function handleShare(data) {
   if (navigator.share) {
-    navigator.share(data)
-      .catch(err => console.log("Share cancelled:", err));
+    navigator.share(data).catch((err) => console.log("Share cancelled:", err));
   } else {
-    navigator.clipboard.writeText(data.url)
+    navigator.clipboard
+      .writeText(data.url)
       .then(() => alert("Event link copied to clipboard ✅"))
       .catch(() => prompt("Copy this link:", data.url));
   }
@@ -561,16 +590,18 @@ function handleShare(data) {
 
 function shareCodeSparkX() {
   const shareData = {
-    title: 'CodeSpark X – Debugging & Coding Challenge',
-    text: 'Think fast. Debug smart. Join CodeSpark X at CAMEO IT Fest 💻🔥',
-    url: window.location.href
+    title: "CodeSpark X – Debugging & Coding Challenge",
+    text: "Think fast. Debug smart. Join CodeSpark X at CAMEO IT Fest 💻🔥",
+    url: window.location.href,
   };
 
   if (navigator.share) {
-    navigator.share(shareData)
-      .catch(err => console.log("Share cancelled:", err));
+    navigator
+      .share(shareData)
+      .catch((err) => console.log("Share cancelled:", err));
   } else {
-    navigator.clipboard.writeText(shareData.url)
+    navigator.clipboard
+      .writeText(shareData.url)
       .then(() => alert("Event link copied to clipboard ✅"))
       .catch(() => alert("Copy failed. Please copy manually."));
   }
@@ -579,9 +610,9 @@ function shareCodeSparkX() {
 function sharebytebeatzz() {
   if (navigator.share) {
     navigator.share({
-      title: 'BYTE BEATZZ',
-      text: 'Join BYTE BEATZZ (Spot-Choreo) at Cameo 2026!',
-      url: window.location.href
+      title: "BYTE BEATZZ",
+      text: "Join BYTE BEATZZ (Spot-Choreo) at Cameo 2026!",
+      url: window.location.href,
     });
   } else {
     alert("Sharing not supported on this browser.");
@@ -590,18 +621,18 @@ function sharebytebeatzz() {
 
 function shareOptiQuest() {
   if (navigator.share) {
-    navigator.share({
-      title: 'OPTIQUEST',
-      text: 'Join OPTIQUEST at Cameo 2026 for an amazing experience!',
-      url: window.location.href
-    })
-      .then(() => console.log('Successfully shared'))
-      .catch((error) => console.error('Error sharing:', error));
+    navigator
+      .share({
+        title: "OPTIQUEST",
+        text: "Join OPTIQUEST at Cameo 2026 for an amazing experience!",
+        url: window.location.href,
+      })
+      .then(() => console.log("Successfully shared"))
+      .catch((error) => console.error("Error sharing:", error));
   } else {
     alert("Sharing is not supported on this browser.");
   }
 }
-
 
 function handleRegisterClick(value) {
   const agreeCheck = document.getElementById("agreeCheck");
@@ -624,5 +655,3 @@ const registerBtn = document.getElementById("registerBtn");
 agreeCheck.addEventListener("change", function () {
   registerBtn.disabled = !this.checked;
 });
-
-

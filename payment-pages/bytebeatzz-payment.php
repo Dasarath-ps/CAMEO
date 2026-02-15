@@ -34,16 +34,18 @@ $returnLink = '../bytebeatzz.php';
         <div class="upi-options">
 
             <!-- UPI Option -->
-            <div class="upi-card">
+            <a href="upi://pay?pa=chinmaiunni1@okicici&pn=chinmai%20unni&am=100.00&cu=INR"
+             class="upi-card">
                 <img src="../asset/payment-QR/ByteBeats/chinmaiQr.jpeg" alt="Chinmai QR">
                 <p>UPI ID:</p>
                 <strong>chinmaiunni1@okicic</strong>
-            </div>
-            <div class="upi-card">
+            </a >
+            <a href="upi://pay?pa=naveenhariharan2@okaxis&pn=Naveen%20Hariharan&am=100.00&cu=INR"
+            class="upi-card">
                 <img src="../asset/payment-QR/ByteBeats/naveenQr.jpeg" alt="Naveen QR">
                 <p>UPI ID:</p>
                 <strong>naveenhariharan2@okaxis</strong>
-            </div>
+            </a>
 
         </div>
 

@@ -29,23 +29,24 @@ $returnLink = '../styleformerx.php';
     <section class="payment-section">
 
         <h2>Registration Fee</h2>
-        <p class="fee"> <span>/ Team</span></p>
+        <p class="fee"> <span>₹200/ Team</span></p>
 
         <div class="upi-options">
 
             <!-- UPI Option -->
-            <div class="upi-card">
+            <a href="upi://pay?pa=vishnupg2004@oksbi&pn=Vishnu%20PG&cu=INR
+" class="upi-card">
                 <img src="../asset/payment-QR/styleformex/meenakshi-ms.jpeg" alt="UPI Meenakshi M S">
                 <p>UPI ID: </p>
                 <strong>meenakshims434@okaxis</strong>
-            </div>
+            </a>
             <!-- UPI Option -->
-            <div class="upi-card">
-                <img src="../asset/payment-QR/styleformex/vishnu.jpeg" alt="UPI Vishnu P G">
-                <p>UPI ID:</p>
-                <strong>vishnupg2004@oksbi</strong>
-            </div>
-
+           <a href="upi://pay?pa=vishnupg2004@oksbi&pn=Vishnu%20PG&cu=INR"
+           class="upi-card">
+    <img src="../asset/payment-QR/styleformex/vishnu.jpeg" alt="UPI Vishnu P G">
+    <p>UPI ID:</p>
+    <strong>vishnupg2004@oksbi</strong>
+</a>
         </div>
 
         <p class="payment-note">

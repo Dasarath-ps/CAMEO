@@ -29,16 +29,23 @@ $returnLink = '../pixora.php';
     <section class="payment-section">
 
         <h2>Registration Fee</h2>
-        <p class="fee"> <span>/ Team</span></p>
+        <p class="fee"> <span>₹100/ Team</span></p>
 
         <div class="upi-options">
 
             <!-- UPI Option -->     
-             <div class="upi-card">
+             <a href=""
+             class="upi-card">
                 <img src="../asset/payment-QR/pixora/jeffQr.jpeg" alt="Pixora QR">
                 <p>UPI ID:</p>
                 <strong>jeffninanjose007@okhdfcbank</strong>
-            </div>
+</a>
+<a href=""
+             class="upi-card">
+                <img src="../asset/payment-QR/pixora/annsonQR.jpeg" alt="Pixora QR">
+                <p>UPI ID:</p>
+                <strong>jeffninanjose007@okhdfcbank</strong>
+</a>
 
         </div>
 

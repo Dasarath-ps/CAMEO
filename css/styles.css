@@ -1,289 +1,243 @@
-        /* --- 1. CORE VARIABLES & THEME SETUP --- */
-        :root {
-            --neon-cyan: #00f3ff;
-            --neon-pink: #ff00ff;
-            --neon-purple: #bc13fe;
-            --dark-bg: #030305;
-            --panel-bg: rgba(10, 10, 15, 0.7);
-            --border-color: rgba(0, 243, 255, 0.2);
-            --text-main: #e0e0e0;
-            --font-display: 'Orbitron', sans-serif;
-            --font-body: 'Rajdhani', sans-serif;
-            --font-code: 'Share Tech Mono', monospace;
-        }
-html {
-    scroll-behavior: smooth;
+/* --- 1. CORE VARIABLES & THEME SETUP --- */
+:root {
+  --neon-cyan: #00f3ff;
+  --neon-pink: #ff00ff;
+  --neon-purple: #bc13fe;
+  --dark-bg: #030305;
+  --panel-bg: rgba(10, 10, 15, 0.7);
+  --border-color: rgba(0, 243, 255, 0.2);
+  --text-main: #e0e0e0;
+  --font-display: "Orbitron", sans-serif;
+  --font-body: "Rajdhani", sans-serif;
+  --font-code: "Share Tech Mono", monospace;
 }
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            overflow-x: hidden;
-            margin: 0;
-            cursor: none; /* Hide default cursor */
-        }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-display);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+html {
+  scroll-behavior: smooth;
+}
 
-        /* --- 2. CANVAS BACKGROUND SYSTEM --- */
-        #canvas-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -10;
-            background: radial-gradient(circle at 50% 50%, #0a0a12 0%, #000000 100%);
-        }
+/* --- CURSOR FIX (Shows normal cursor) --- */
+body,
+button,
+input,
+label,
+span {
+  cursor: auto !important;
+}
 
-        /* --- 3. ADVANCED CURSOR SYSTEM --- */
-        .cursor-dot, .cursor-outline, .cursor-trail {
-            position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-        }
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  margin: 0;
+  cursor: auto !important; /* Override old cursor:none */
+}
 
-        .cursor-dot {
-            width: 6px;
-            height: 6px;
-            background-color: #fff;
-            z-index: 10001;
-        }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--neon-cyan);
-            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
-            z-index: 10000;
-            mix-blend-mode: difference;
-        }
+/* --- 2. CANVAS BACKGROUND SYSTEM --- */
+#canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  background: radial-gradient(circle at 50% 50%, #0a0a12 0%, #000000 100%);
+}
 
-        .cursor-trail {
-            width: 20px;
-            height: 20px;
-            background: var(--neon-purple);
-            opacity: 0.5;
-            filter: blur(4px);
-            z-index: 9999;
-            transition: transform 0.1s ease-out;
-        }
+/* --- 3. ADVANCED CURSOR SYSTEM (kept but disabled visually) --- */
+/* .cursor-dot,
+.cursor-outline,
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+}
 
-        body.hovering .cursor-outline {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(0, 243, 255, 0.1);
-            border-color: transparent;
-        }
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+}
 
-        /* --- 4. LOADER ANIMATION --- */
-        #system-loader {
-            position: fixed;
-            inset: 0;
-            background: #000;
-            z-index: 20000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .loader-ring {
-            width: 80px;
-            height: 80px;
-            border: 2px solid transparent;
-            border-top-color: var(--neon-cyan);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        .loader-ring::before {
-            content: "";
-            position: absolute;
-            top: 5px; left: 5px; right: 5px; bottom: 5px;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            border-top-color: var(--neon-purple);
-            animation: spin 2s linear infinite;
-        }
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--neon-cyan);
+  mix-blend-mode: difference;
+}
 
-        .loader-text {
-            margin-top: 20px;
-            font-family: var(--font-code);
-            color: var(--neon-cyan);
-            font-size: 14px;
-            letter-spacing: 4px;
-        }
+.cursor-trail {
+  width: 20px;
+  height: 20px;
+  background: var(--neon-purple);
+  opacity: 0.5;
+  filter: blur(4px);
+} */
 
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.cursor-dot,
+.cursor-outline,
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+}
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--neon-cyan);
+  mix-blend-mode: difference;
+}
+.cursor-trail {
+  width: 20px;
+  height: 20px;
+  background: var(--neon-purple);
+  opacity: 0.5;
+  filter: blur(4px);
+}
 
-        /* --- 5. GLITCH TEXT EFFECT --- */
-        .glitch {
-            position: relative;
-        }
-        .glitch::before, .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .glitch::before {
-            left: 2px;
-            text-shadow: -1px 0 red;
-            clip: rect(24px, 550px, 90px, 0);
-            animation: glitch-anim-2 3s infinite linear alternate-reverse;
-        }
-        .glitch::after {
-            left: -2px;
-            text-shadow: -1px 0 blue;
-            clip: rect(85px, 550px, 140px, 0);
-            animation: glitch-anim 2.5s infinite linear alternate-reverse;
-        }
+/* ============================= */
+/* POPUP SYSTEM FIX (COMPLETE)   */
+/* ============================= */
 
-        @keyframes glitch-anim {
-            0% { clip: rect(10px, 9999px, 30px, 0); }
-            20% { clip: rect(80px, 9999px, 100px, 0); }
-            40% { clip: rect(10px, 9999px, 100px, 0); }
-            60% { clip: rect(40px, 9999px, 60px, 0); }
-            80% { clip: rect(20px, 9999px, 80px, 0); }
-            100% { clip: rect(60px, 9999px, 90px, 0); }
-        }
-        @keyframes glitch-anim-2 {
-            0% { clip: rect(60px, 9999px, 80px, 0); }
-            20% { clip: rect(10px, 9999px, 20px, 0); }
-            40% { clip: rect(80px, 9999px, 100px, 0); }
-            60% { clip: rect(30px, 9999px, 40px, 0); }
-            80% { clip: rect(50px, 9999px, 60px, 0); }
-            100% { clip: rect(90px, 9999px, 100px, 0); }
-        }
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
 
-        /* --- 6. SCROLL ANIMATION UTILITIES --- */
-        .reveal-element {
-            opacity: 0;
-            transform: translateY(80px);
-            transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-            will-change: transform, opacity;
-        }
-        .reveal-element.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+/* Hidden state */
+.popup.hidden {
+  display: none !important;
+  pointer-events: none !important;
+}
 
-        .reveal-scale {
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        .reveal-scale.active {
-            opacity: 1;
-            transform: scale(1);
-        }
+/* Popup box */
+.popup-box {
+  background: #111;
+  padding: 25px 35px;
+  border-radius: 12px;
+  border: 1px solid var(--neon-cyan);
+  text-align: center;
+  box-shadow: 0 0 25px var(--neon-cyan);
+  max-width: 350px;
+  width: 90%;
+}
 
-        /* Stagger Delays */
-        .delay-100 { transition-delay: 100ms; }
-        .delay-200 { transition-delay: 200ms; }
-        .delay-300 { transition-delay: 300ms; }
-        .delay-400 { transition-delay: 400ms; }
+.popup-box p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #fff;
+}
 
-        /* --- 7. COMPONENT STYLES --- */
-        .glass-panel {
-            background: var(--panel-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        }
+.popup-box button {
+  background: var(--neon-cyan);
+  color: #000;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
 
-        .cyber-btn {
-            position: relative;
-            background: transparent;
-            color: var(--neon-cyan);
-            border: 1px solid var(--neon-cyan);
-            padding: 12px 30px;
-            font-family: var(--font-display);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            overflow: hidden;
-            transition: all 0.4s;
-            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-        }
+.popup-box button:hover {
+  opacity: 0.85;
+}
 
-        .cyber-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: var(--neon-cyan);
-            transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            z-index: -1;
-        }
+/* --- LOADER --- */
+#system-loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 20000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        .cyber-btn:hover::before {
-            left: 0;
-        }
+/* --- BUTTON STYLE --- */
+.cyber-btn {
+  background: transparent;
+  color: var(--neon-cyan);
+  border: 1px solid var(--neon-cyan);
+  padding: 12px 30px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.4s;
+}
 
-        .cyber-btn:hover {
-            color: #000;
-            box-shadow: 0 0 20px var(--neon-cyan);
-        }
+.cyber-btn:hover {
+  background: var(--neon-cyan);
+  color: #000;
+  box-shadow: 0 0 20px var(--neon-cyan);
+}
 
-        .cyber-btn-secondary {
-            border-color: var(--neon-purple);
-            color: var(--neon-purple);
-        }
-        .cyber-btn-secondary::before { background: var(--neon-purple); }
-        .cyber-btn-secondary:hover { box-shadow: 0 0 20px var(--neon-purple); }
+/* --- GLASS PANEL --- */
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+}
 
-        /* 3D Card Effect */
-        .tilt-card {
-            transform-style: preserve-3d;
-            transform: perspective(1000px);
-        }
-        .tilt-inner {
-            transform: translateZ(20px);
-        }
+/* --- INPUT --- */
+.cyber-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-bottom: 2px solid #333;
+  color: #fff;
+}
 
-        /* --- 9. INPUT STYLES --- */
-        .cyber-input {
-            background: rgba(255,255,255,0.05);
-            border: none;
-            border-bottom: 2px solid #333;
-            color: #fff;
-            font-family: var(--font-code);
-            transition: all 0.3s;
-        }
-        .cyber-input:focus {
-            outline: none;
-            border-color: var(--neon-cyan);
-            background: rgba(0, 243, 255, 0.05);
-        }
+.cyber-input:focus {
+  outline: none;
+  border-color: var(--neon-cyan);
+}
 
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--neon-cyan); }
+/* --- SCROLLBAR --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+}
 
-        /* Mobile Utilities */
-        @media (max-width: 768px) {
-            .timeline-line { left: 20px; }
-            .timeline-node { left: 20px; }
-            .timeline-content { margin-left: 50px !important; width: calc(100% - 70px) !important; }
-        }
-
-        /*chat bot*/
-        .chatbot {
+/* --- CHATBOT --- */
+.chatbot {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -291,7 +245,6 @@ html {
   background: #111;
   color: #fff;
   border-radius: 10px;
-  font-family: Arial, sans-serif;
 }
 
 .chat-header {
@@ -306,7 +259,6 @@ html {
   height: 220px;
   overflow-y: auto;
   padding: 10px;
-  font-size: 14px;
 }
 
 .chat-input {
@@ -326,207 +278,7 @@ html {
   cursor: pointer;
 }
 
-/* GET IN TOUCH */
-
-  .tilt-card { perspective: 1000px; }
-  .glass-panel { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
-  a:hover { opacity: 0.9; transition: 0.3s; }
-
-/*css for every page*/
-
-/* ===== EVENT SECTION ===== */
-.event-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 120px 20px;
-  background: url("path/to/space-bg.jpg") center/cover no-repeat;
-}
-
-/* ===== CONTAINER ===== */
-.event-container {
-  display: flex;
-  gap: 50px;
-  max-width: 1100px;
-  width: 100%;
-  background: rgba(20, 25, 40, 0.55);
-  backdrop-filter: blur(14px);
-  border-radius: 22px;
-  padding: 50px;
-  border: 1px solid rgba(0, 255, 255, 0.15);
-  box-shadow: 0 0 40px rgba(0, 255, 255, 0.08);
-  flex-wrap: wrap;
-}
-
-
-/* ===== POSTER ===== */
-.event-poster img {
-  width: 260px;
-  height: 360px;
-  object-fit: cover;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 0, 128, 0.35);
-  box-shadow: 0 0 25px rgba(255, 0, 128, 0.25);
-}
-
-/* ===== CONTENT ===== */
-.event-content {
-  flex: 1 1 400px;
-}
-
-/* ===== TITLE ===== */
-.event-title {
-  font-size: 48px;
-  color: #fff;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-}
-
-/* ===== TAGLINE ===== */
-.event-tagline {
-  color: #aaa;
-  margin-bottom: 30px;
-  line-height: 1.6;
-}
-
-/* ===== INFO GRID ===== */
-.event-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-  margin-bottom: 25px;
-}
-
-/* ===== SMALL INFO CARDS ===== */
-.event-info-card {
-  background: rgba(30, 40, 70, 0.6);
-  border-radius: 14px;
-  padding: 15px;
-  border: 1px solid rgba(0, 200, 255, 0.15);
-}
-
-.event-info-card span {
-  color: var(--neon-cyan);
-  font-size: 14px;
-}
-
-.event-info-card p {
-  color: #fff;
-  margin-top: 5px;
-  font-size: 15px;
-}
-
-/* ===== RULES & COORDINATORS ===== */
-.event-rules-card,
-.event-coordinator-card {
-  background: rgba(25, 30, 55, 0.65);
-  border-radius: 16px;
-  padding: 20px;
-  margin-top: 15px;
-  border: 1px solid rgba(255, 0, 128, 0.2);
-}
-
-.event-rules-card h3,
-.event-coordinator-card h3 {
-  color: var(--neon-pink);
-  margin-bottom: 10px;
-}
-
-.event-rules-card ul {
-  color: #bbb;
-  padding-left: 18px;
-  line-height: 1.7;
-}
-.share-icon {
-  flex: 0;
-  min-width: 55px;
-  padding: 0;
-  font-size: 20px;
-}
-
-/* Poster column */
-.event-poster {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-/* Buttons BELOW poster */
-.event-poster-buttons {
-  margin-top: 18px;
-  width: 260px;          /* EXACT poster width */
-  display: flex;
-  gap: 10px;
-}
-
-/* Equal button sizing */
-.event-poster-buttons .cyber-btn {
-  flex: 1;
-  padding: 11px 0;
-  font-size: 15px;
-}
-
-/* Share icon button */
-.share-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-}
-
-/* Optional: nicer icon spacing */
-.share-icon span {
-  transform: translateY(-1px);
-}
-
-.event-content h1 {
-  font-size: clamp(28px, 5vw, 48px);
-}
-
-.share-icon {
-  letter-spacing: 2px;
-}
-.share-icon:hover {
-  box-shadow: 0 0 18px rgba(0, 255, 255, 0.6);
-}
-
-/*for cyberclash*/
-.event-sectionn{
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 20px;
-  background: url("path/to/space-bg.jpg") center/cover no-repeat;
-}
-/*for cyberclash*/
-
-/*for mobile screen*/
-@media (max-width: 768px) {
-
-  .event-container {
-    flex-direction: column;
-    padding: 30px 20px;
-    gap: 25px;
-  }
-
-  .event-poster {
-    text-align: center;
-  }
-
-  .event-content {
-    text-align: center;
-  }
-
-  .event-content h1 {
-    margin-top: 10px;
-      position: relative;
-  z-index: 2;
-  }
-
-}
-
-/*MUSIC PLAYER*/
+/* --- MUSIC BUTTON --- */
 .music-btn {
   position: fixed;
   bottom: 25px;
@@ -536,13 +288,9 @@ html {
   border-radius: 50%;
   border: 1px solid rgba(0, 255, 255, 0.4);
   background: rgba(20, 25, 40, 0.7);
-  backdrop-filter: blur(10px);
   color: var(--neon-cyan);
-  font-size: 22px;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.25);
   transition: 0.3s ease;
-  z-index: 999;
 }
 
 .music-btn:hover {
@@ -550,38 +298,21 @@ html {
   box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
 }
 
-/*Payment section*/
-
+/* --- PAYMENT SECTION --- */
 .payment-section {
   text-align: center;
   padding: 150px 20px;
   background: #0a0a0f;
-  border-top: 1px solid #1f1f2e;
 }
 
 .payment-section h2 {
   font-size: 32px;
-  margin-bottom: 10px;
   color: #00f0ff;
 }
 
 .fee {
   font-size: 40px;
   font-weight: bold;
-  margin-bottom: 40px;
-}
-
-.fee span {
-  font-size: 18px;
-  color: #888;
-}
-
-.upi-options {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
 }
 
 .upi-card {
@@ -596,33 +327,4 @@ html {
 .upi-card:hover {
   transform: translateY(-5px);
   border-color: #00f0ff;
-}
-
-.upi-card img {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-.upi-card p {
-  margin: 5px 0;
-  color: #aaa;
-}
-
-.upi-card strong {
-  color: #fff;
-  font-size: 14px;
-  word-break: break-all;
-}
-
-.payment-note {
-  margin: 20px 0;
-  color: #999;
-}
-      .payment-card {
-  background: rgba(0, 255, 255, 0.08);
-  border: 1px solid rgba(0, 255, 255, 0.25);
-  border-radius: 14px;
-  padding: 18px;
-  width: 260px;
 }

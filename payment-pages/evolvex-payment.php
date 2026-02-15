@@ -34,16 +34,13 @@ $returnLink = '../evolvex.php';
         <div class="upi-options">
 
             <!-- UPI Option -->
-            <div class="upi-card">
-                <img src="../asset/payment-QR/evolvex/benjamin-qr.jpeg" alt="UPI QR Benjamin">
+            <a href="upi://pay?pa=benjaminjomy23@oksbi&pn=Benjamin%20Jomy&cu=INR"
+            class="upi-card">
+                <img src="../asset/payment-QR/evolvex/benjamin_400.jpeg" alt="UPI QR Benjamin">
                 <p>UPI ID:</p>
                 <strong>benjaminjomy23@oksbi</strong>
-            </div>
-             <div class="upi-card">
-                <img src="../asset/payment-QR/evolvex/anjuQr.jpeg" alt="UPI QR Anju">
-                <p>UPI ID:</p>
-                <strong>anjuaugustine99@okaxis</strong>
-            </div>
+            </a>
+            
 
         </div>
 
@@ -53,7 +50,7 @@ $returnLink = '../evolvex.php';
 
         <!-- Google Form Button -->
         <button class="cyber-btn"
-                onclick="window.open('https://forms.gle/wEvTviFzrUEewL9H7')">
+                onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSffozRHKMTmZfwuEIUzad17m660T2R6L4N3_CKpCOFp-vvHrw/viewform?usp=publish-editor')">
             Submit Payment Details
         </button>
 

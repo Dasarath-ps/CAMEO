@@ -35,11 +35,12 @@ $returnLink = '../cyberclash.php';
 
             <!-- UPI Option -->
 
-             <div class="upi-card">
+             <a href="upi://pay?pa=ksabhijith836@okicici&pn=Abhijith%20K%20S&cu=INR" 
+             class="upi-card">
                 <img src="../asset/payment-QR/efootball/abhijithQr.jpg" alt="abhijith Qr">
                 <p>UPI ID:</p>
                 <strong>ksabhijith863@okicici</strong>
-            </div>
+            </a>
 
 
         </div>

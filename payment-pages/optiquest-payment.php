@@ -39,18 +39,22 @@ $returnLink = '../optiquest.php';
   
    
 </a> -->
- <div class="upi-card">
+ <a href="upi://pay?pa=ashnathomas49@okaxis&pn=Ashna%20Thomas&cu=INR
+"
+ class="upi-card">
                       <img src="../asset/payment-QR/TresureHunt/ashna-thomas.jpeg" alt="UPI QR Ashna Thomas">
     <p>UPI ID:</p>
     <strong>ashnathomas49@okaxis</strong>
 
-            </div>
+            </a>
              <!-- UPI Option -->
-            <div class="upi-card">
+            <a href="upi://pay?pa=aparnababu262@okhdfcbank&pn=Aparna%20Babu&cu=INR 
+"
+            class="upi-card">
                 <img src="../asset/payment-QR/TresureHunt/aparnaQr.jpeg" alt="devika Qr">
                 <p>UPI ID:</p>
                 <strong>aparnababu262@okhdfcbank</strong>
-            </div>
+</a>
 
         </div>
 
