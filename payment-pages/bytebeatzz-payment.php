@@ -39,6 +39,11 @@ $returnLink = '../bytebeatzz.php';
                 <p>UPI ID:</p>
                 <strong>chinmaiunni1@okicic</strong>
             </div>
+            <div class="upi-card">
+                <img src="../asset/payment-QR/ByteBeats/naveenQr.jpeg" alt="Naveen QR">
+                <p>UPI ID:</p>
+                <strong>naveenhariharan2@okaxis</strong>
+            </div>
 
         </div>
 

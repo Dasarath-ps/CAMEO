@@ -37,7 +37,12 @@ $returnLink = '../evolvex.php';
             <div class="upi-card">
                 <img src="../asset/payment-QR/evolvex/benjamin-qr.jpeg" alt="UPI QR Benjamin">
                 <p>UPI ID:</p>
-                <strong></strong>
+                <strong>benjaminjomy23@oksbi</strong>
+            </div>
+             <div class="upi-card">
+                <img src="../asset/payment-QR/evolvex/anjuQr.jpeg" alt="UPI QR Anju">
+                <p>UPI ID:</p>
+                <strong>anjuaugustine99@okaxis</strong>
             </div>
 
         </div>
