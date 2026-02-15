@@ -60,7 +60,7 @@ $returnLink = '../cyberclash.php';
     <?php include '../includes/footer.php' ?>
 
     <!-- JS -->
-    <script src="../js/javaScript.js"></script>
+    <script src="../js/javaS.js"></script>
 
 </body>
 </html>

@@ -46,8 +46,8 @@ $returnLink = '../codexsparkx.php';
                 <strong>devikadinesh86-2@okaxis</strong>
             </div>
             
-
-        </div>
+   
+           </div>
 
         <p class="payment-note">
             Complete the payment and submit details below 👇
@@ -65,7 +65,7 @@ $returnLink = '../codexsparkx.php';
     <?php include '../includes/footer.php' ?>
 
     <!-- JS -->
-    <script src="../js/javaScript.js"></script>
+    <script src="../js/javaS.js"></script>
 
 </body>
 </html>

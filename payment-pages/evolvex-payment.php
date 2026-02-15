@@ -29,13 +29,13 @@ $returnLink = '../evolvex.php';
     <section class="payment-section">
 
         <h2>Registration Fee</h2>
-        <p class="fee"> <span>/ Team</span></p>
+        <p class="fee">₹100 <span>/ Head</span></p>
 
         <div class="upi-options">
 
             <!-- UPI Option -->
             <div class="upi-card">
-                <img src="../asset/payment-QR/evolvex/" alt="">
+                <img src="../asset/payment-QR/evolvex/benjamin-qr.jpeg" alt="UPI QR Benjamin">
                 <p>UPI ID:</p>
                 <strong></strong>
             </div>
@@ -48,7 +48,7 @@ $returnLink = '../evolvex.php';
 
         <!-- Google Form Button -->
         <button class="cyber-btn"
-                onclick="window.open('YOUR_GOOGLE_FORM_LINK_HERE')">
+                onclick="window.open('https://forms.gle/wEvTviFzrUEewL9H7')">
             Submit Payment Details
         </button>
 
@@ -58,7 +58,7 @@ $returnLink = '../evolvex.php';
     <?php include '../includes/footer.php' ?>
 
     <!-- JS -->
-    <script src="../js/javaScript.js"></script>
+    <script src="../js/javaS.js"></script>
 
 </body>
 </html>

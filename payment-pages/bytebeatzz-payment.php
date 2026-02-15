@@ -35,9 +35,9 @@ $returnLink = '../bytebeatzz.php';
 
             <!-- UPI Option -->
             <div class="upi-card">
-                <img src="../asset/payment-QR/evolvex/" alt="">
+                <img src="../asset/payment-QR/ByteBeats/chinmaiQr.jpeg" alt="Chinmai QR">
                 <p>UPI ID:</p>
-                <strong></strong>
+                <strong>chinmaiunni1@okicic</strong>
             </div>
 
         </div>
@@ -48,7 +48,7 @@ $returnLink = '../bytebeatzz.php';
 
         <!-- Google Form Button -->
         <button class="cyber-btn"
-                onclick="window.open('YOUR_GOOGLE_FORM_LINK_HERE')">
+                onclick="window.open('https://forms.gle/xxXigMynQxA2YHiH6')">
             Submit Payment Details
         </button>
 
@@ -58,7 +58,7 @@ $returnLink = '../bytebeatzz.php';
     <?php include '../includes/footer.php' ?>
 
     <!-- JS -->
-    <script src="../js/javaScript.js"></script>
+    <script src="../js/javaS.js"></script>
 
 </body>
 </html>

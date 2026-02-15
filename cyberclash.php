@@ -467,7 +467,7 @@ function toggleMusic() {
 }
 </script>
 
-<script src="js/javaScript.js"></script>
+<script src="js/javaS.js"></script>
 
 </body>
 </html>

@@ -34,15 +34,23 @@ $returnLink = '../optiquest.php';
         <div class="upi-options">
 
 <!-- UPI Option -->
-<a class="upi-card"
+<!-- <a class="upi-card"
    href="upi://pay?pa=ashnathomas49@okaxis&pn=Ashna%20Thomas&am=400&cu=INR">
-
-    <img src="../asset/payment-QR/evolvex/ashna-thomas.jpeg" alt="UPI QR Ashna Thomas">
+  
+   
+</a> -->
+ <div class="upi-card">
+                      <img src="../asset/payment-QR/TresureHunt/ashna-thomas.jpeg" alt="UPI QR Ashna Thomas">
     <p>UPI ID:</p>
     <strong>ashnathomas49@okaxis</strong>
 
-</a>
-
+            </div>
+             <!-- UPI Option -->
+            <div class="upi-card">
+                <img src="../asset/payment-QR/TresureHunt/aparnaQr.jpeg" alt="devika Qr">
+                <p>UPI ID:</p>
+                <strong>aparnababu262@okhdfcbank</strong>
+            </div>
 
         </div>
 
@@ -52,7 +60,7 @@ $returnLink = '../optiquest.php';
 
         <!-- Google Form Button -->
         <button class="cyber-btn"
-                onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSezGxRbmHdzjopAxYnp8KY6xvTr0cnPBJuG14DFbHlaKH-E9w/viewform?usp=header')">
+                onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScp1SFqC3anVgjYl8leBtVSiOrQtOAJ8t3c4DON0lgBTXr2NA/viewform?usp=dialog')">
             Submit Payment Details
         </button>
 
@@ -62,7 +70,7 @@ $returnLink = '../optiquest.php';
     <?php include '../includes/footer.php' ?>
 
     <!-- JS -->
-    <script src="../js/javaScript.js"></script>
+    <script src="../js/javaS.js"></script>
 
 </body>
 </html>

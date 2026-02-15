@@ -35,9 +35,9 @@ $returnLink = '../pixora.php';
 
             <!-- UPI Option -->     
              <div class="upi-card">
-                <img src="../asset/payment-QR/evolvex/" alt="">
+                <img src="../asset/payment-QR/pixora/jeffQr.jpeg" alt="Pixora QR">
                 <p>UPI ID:</p>
-                <strong></strong>
+                <strong>jeffninanjose007@okhdfcbank</strong>
             </div>
 
         </div>
@@ -48,7 +48,7 @@ $returnLink = '../pixora.php';
 
         <!-- Google Form Button -->
         <button class="cyber-btn"
-                onclick="window.open('YOUR_GOOGLE_FORM_LINK_HERE')">
+                onclick="window.open('https://forms.gle/jnEaJ3nw6V9Hc2KZ9')">
             Submit Payment Details
         </button>
 
@@ -58,7 +58,7 @@ $returnLink = '../pixora.php';
     <?php include '../includes/footer.php' ?>
 
     <!-- JS -->
-    <script src="../js/javaScript.js"></script>
+    <script src="../js/javaS"></script>
 
 </body>
 </html>

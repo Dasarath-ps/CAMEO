@@ -192,7 +192,7 @@
   <!-- FOOTER SECTION  -->
   <?php include 'includes/footer.php' ?>
   <!-- Javascript  -->
-  <script src="js/javaScript.js"></script>
+  <script src="js/javaS.js"></script>
 </body>
 
 </html>

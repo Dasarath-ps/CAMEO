@@ -32,23 +32,29 @@ $returnLink = '../styleformerx.php';
         <p class="fee"> <span>/ Team</span></p>
 
         <div class="upi-options">
-<a href="upi://pay?pa=meenakshims434@okaxis&pn=Meenakshi%20M%20S&am=200&cu=INR">
+
             <!-- UPI Option -->
             <div class="upi-card">
                 <img src="../asset/payment-QR/styleformex/meenakshi-ms.jpeg" alt="UPI Meenakshi M S">
                 <p>UPI ID: </p>
                 <strong>meenakshims434@okaxis</strong>
             </div>
+            <!-- UPI Option -->
+            <div class="upi-card">
+                <img src="../asset/payment-QR/styleformex/vishnu.jpeg" alt="UPI Vishnu P G">
+                <p>UPI ID:</p>
+                <strong>vishnupg2004@oksbi</strong>
+            </div>
 
         </div>
-</a>
+
         <p class="payment-note">
             Complete the payment and submit details below 👇
         </p>
 
         <!-- Google Form Button -->
         <button class="cyber-btn"
-                onclick="window.open('YOUR_GOOGLE_FORM_LINK_HERE')">
+                onclick="window.open('https://forms.gle/RyaFhCgbGPKQUwiX8')">
             Submit Payment Details
         </button>
 
@@ -58,7 +64,7 @@ $returnLink = '../styleformerx.php';
     <?php include '../includes/footer.php' ?>
 
     <!-- JS -->
-    <script src="../js/javaScript.js"></script>
+    <script src="../js/javaS.js"></script>
 
 </body>
 </html>

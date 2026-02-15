@@ -5,7 +5,7 @@
                 <div class="flex items-center">
                     <img style="height:60px;width:140px" src="../asset/img/logo1.jpeg" alt="Nirmala college">
                     <div class="h-12 w-px bg-white mx-3"></div>
-                    <img style="height:60px;width:140px" src="../asset/img/logo2.jpeg" alt="ican">
+                    <img style="height:60px;width:140px" src="../asset/img/logo2.jpeg" alt="Loding...">
                 </div>
                 <p class="text-slate-500 max-w-md leading-relaxed mb-6">
                     The annual technical festival organized by the MCA Department of Nirmala College Muvattupuzha. Celebrating innovation since 2026.
