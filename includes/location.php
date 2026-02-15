@@ -67,28 +67,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 hasAnimated = true;
 
-                // 1️⃣ Icon drop-in reveal
+                // 1️⃣ Icon drop-in (instant feel)
                 icon.classList.remove("opacity-0", "translate-y-[-80px]", "scale-75", "blur-md");
                 icon.classList.add("opacity-100", "translate-y-0", "scale-100", "blur-0");
 
-                // 2️⃣ Soft glow pulse
+                // 2️⃣ Flip + shrink faster
                 setTimeout(() => {
-                    icon.classList.add("animate-pulse");
-                }, 800);
+                    icon.style.transform = "rotateY(180deg) scale(0.55)";
+                }, 500);
 
-                // 3️⃣ Flip + shrink to top
-                setTimeout(() => {
-                    icon.style.transform = "rotateY(180deg) scale(0.5)";
-                }, 1500);
-
-                // 4️⃣ Map reveal
+                // 3️⃣ Map reveal quickly after
                 setTimeout(() => {
                     icon.classList.add("opacity-0");
 
                     map.classList.remove("opacity-0", "translate-y-10", "scale-95");
                     map.classList.add("opacity-100", "translate-y-0", "scale-100");
 
-                }, 2200);
+                }, 900);
 
                 observer.unobserve(section);
             }
@@ -99,3 +94,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
