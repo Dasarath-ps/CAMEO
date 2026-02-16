@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 
 ErrorDocument 404 /CAMEO/404.php
+=======
+
+ErrorDocument 404 /CAMEO/404.php
+>>>>>>> 9cbf00501787b6805e108586ce3cf4674d688d9f
 ErrorDocument 403 /CAMEO/404.php
