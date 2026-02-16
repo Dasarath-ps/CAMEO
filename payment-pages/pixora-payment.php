@@ -34,18 +34,18 @@ $returnLink = '../pixora.php';
         <div class="upi-options">
 
             <!-- UPI Option -->     
-             <a href=""
+             <div
              class="upi-card">
                 <img src="../asset/payment-QR/pixora/jeffQr.jpeg" alt="Pixora QR">
                 <p>UPI ID:</p>
                 <strong>jeffninanjose007@okhdfcbank</strong>
-</a>
-<a href=""
+</div>
+<div 
              class="upi-card">
                 <img src="../asset/payment-QR/pixora/annsonQR.jpeg" alt="Pixora QR">
                 <p>UPI ID:</p>
-                <strong>jeffninanjose007@okhdfcbank</strong>
-</a>
+                <strong>annsonaugustinekp@okicic</strong>
+</div>
 
         </div>
 

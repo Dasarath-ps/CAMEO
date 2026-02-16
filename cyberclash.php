@@ -101,7 +101,7 @@ include 'includes/header.php';
     </p>
 
     <div style="margin-top:30px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
-      <button class="cyber-btn" onclick="switchGame('pubg')">PUBG</button>
+      <button class="cyber-btn" onclick="switchGame('pubg')">BGMI</button>
       <button class="cyber-btn" onclick="switchGame('efootball')">E-Football</button>
       <button class="cyber-btn" onclick="switchGame('minimilitia')">Mini-Militia</button>
     </div>
@@ -146,8 +146,8 @@ include 'includes/header.php';
     <div class="event-content">
       <h1 style="font-size:48px; margin-bottom:20px;"
           class="glitch"
-          data-text="PUBG">
-          PUBG
+          data-text="BGMI">
+          BGMI
       </h1>
 
       <p class="event-tagline">

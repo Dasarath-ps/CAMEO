@@ -29,18 +29,18 @@ $returnLink = '../cyberclash.php';
     <section class="payment-section">
 
         <h2>Registration Fee</h2>
-        <p class="fee"> <span>/ Team</span></p>
+        <p class="fee"> <span>₹50/ Team</span></p>
 
         <div class="upi-options">
 
             <!-- UPI Option -->
 
-             <a href="upi://pay?pa=ksabhijith836@okicici&pn=Abhijith%20K%20S&cu=INR" 
+             <div 
              class="upi-card">
-                <img src="../asset/payment-QR/efootball/abhijithQr.jpg" alt="abhijith Qr">
+                <img src="../asset/payment-QR/efootball/abhijithQr.jpeg" alt="abhijith Qr">
                 <p>UPI ID:</p>
                 <strong>ksabhijith863@okicici</strong>
-            </a>
+            </div>
 
 
         </div>

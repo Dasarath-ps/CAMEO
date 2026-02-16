@@ -29,23 +29,23 @@ $returnLink = '../bytebeatzz.php';
     <section class="payment-section">
 
         <h2>Registration Fee</h2>
-        <p class="fee"> <span>/ Team</span></p>
+        <p class="fee"> <span>₹100/ Team</span></p>
 
         <div class="upi-options">
 
             <!-- UPI Option -->
-            <a href="upi://pay?pa=chinmaiunni1@okicici&pn=chinmai%20unni&am=100.00&cu=INR"
+            <div
              class="upi-card">
                 <img src="../asset/payment-QR/ByteBeats/chinmaiQr.jpeg" alt="Chinmai QR">
                 <p>UPI ID:</p>
                 <strong>chinmaiunni1@okicic</strong>
-            </a >
-            <a href="upi://pay?pa=naveenhariharan2@okaxis&pn=Naveen%20Hariharan&am=100.00&cu=INR"
+            </div >
+            <div
             class="upi-card">
                 <img src="../asset/payment-QR/ByteBeats/naveenQr.jpeg" alt="Naveen QR">
                 <p>UPI ID:</p>
                 <strong>naveenhariharan2@okaxis</strong>
-            </a>
+            </div>
 
         </div>
 

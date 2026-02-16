@@ -58,7 +58,7 @@
 
         <!-- Buttons BELOW Poster -->
         <div class="event-poster-buttons">
-          <button class="cyber-btn" id="registerBtn" onclick="handleRegisterClick('evolvex')">
+          <button class="cyber-btn" id="registerBtn" onclick="handleRegister('evolvex')">
             Register Now
           </button>
           <button class="cyber-btn cyber-btn-secondary share-icon" onclick="shareEvent()">
@@ -120,7 +120,7 @@
 
   <!-- JavaScript -->
   <script>
-  function handleRegisterClick(eventName) {
+  function handleRegister(eventName) {
     const agreeCheck = document.getElementById("agreeCheck");
     const teamSize = document.querySelector('input[name="teamSize"]:checked');
     const popup = document.getElementById("agreePopup");

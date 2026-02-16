@@ -34,19 +34,18 @@ $returnLink = '../styleformerx.php';
         <div class="upi-options">
 
             <!-- UPI Option -->
-            <a href="upi://pay?pa=vishnupg2004@oksbi&pn=Vishnu%20PG&cu=INR
-" class="upi-card">
+            <div class="upi-card">
                 <img src="../asset/payment-QR/styleformex/meenakshi-ms.jpeg" alt="UPI Meenakshi M S">
                 <p>UPI ID: </p>
                 <strong>meenakshims434@okaxis</strong>
-            </a>
+            </div>
             <!-- UPI Option -->
-           <a href="upi://pay?pa=vishnupg2004@oksbi&pn=Vishnu%20PG&cu=INR"
+           <div 
            class="upi-card">
     <img src="../asset/payment-QR/styleformex/vishnu.jpeg" alt="UPI Vishnu P G">
     <p>UPI ID:</p>
     <strong>vishnupg2004@oksbi</strong>
-</a>
+</div>
         </div>
 
         <p class="payment-note">

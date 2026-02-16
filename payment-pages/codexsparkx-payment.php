@@ -15,38 +15,39 @@ $returnLink = '../codexsparkx.php';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
     <!-- Main CSS -->
     <link rel="stylesheet" href="../css/styles.css">
-</head>
+</head><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
 
 <body class="antialiased selection:bg-cyan-500 selection:text-black">
 
     <!-- HEADER -->
-    <?php include '../includes/header.php' ?>
+    <?php include '../includes/h<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+eader.php' ?>
 
     <!-- PAYMENT SECTION -->
     <section class="payment-section">
 
         <h2>Registration Fee</h2>
-        <p class="fee"> <span>/ Team</span></p>
+        <p class="fee"> <span>₹200/ Team</span></p>   
 
         <div class="upi-options">
 
             <!-- UPI Option -->
-            <a href="upi://pay?pa=dhasarathps@okhdfcbank&pn=Dhasarath%20ps&cu=INR"
+            <div
             class="upi-card">
                 <img src="../asset/payment-QR/codexsparkx/dasarthQr.jpg" alt="dasarath Qr">
                 <p>UPI ID:</p>
                 <strong>dhasarathps@okhdfcbank</strong>
-            </a>
+            </div>
              <!-- UPI Option -->
-            <a href="upi://pay?pa=devikadinesh86-2@okaxis&pn=Devika%20Dinesh&cu=INR"
+            <div 
             class="upi-card">
                 <img src="../asset/payment-QR/codexsparkx/devikaQr.jpg" alt="devika Qr">
                 <p>UPI ID:</p>
                 <strong>devikadinesh86-2@okaxis</strong>
-            </a>
+</div>
             
    
            </div>

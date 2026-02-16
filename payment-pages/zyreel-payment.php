@@ -27,24 +27,24 @@ $returnLink = '../zyreel.php';
   <div class="upi-options">
 
 <!-- UPI Option 1 -->
-<a class="upi-card"
-   href="upi://pay?pa=josephlibin479-1@okicici&pn=Libin%20Joseph&am=150&cu=INR">
+<div class="upi-card"
+   >
 
-  <img src="../asset/payment-QR/zyreel/libin_joseph.jpeg" alt="UPI QR Libin">
+<img src="../asset/payment-QR/zyreel/LibinQt.jpeg" alt="UPI QR Libin">
   <p>UPI ID:</p>
   <strong>josephlibin479-1@okicici</strong>
 
-</a>
+</div>
 
 <!-- UPI Option 2 -->
-<a class="upi-card"
-   href="upi://pay?pa=nehamanshad@okhdfcbank&pn=Neha%20Manshad&am=150&cu=INR">
+<div class="upi-card"
+  >
 
-  <img src="../asset/payment-QR/zyreel/neha_manshad.jpeg" alt="UPI QR Neha">
+  <img src="../asset/payment-QR/zyreel/NehaQr.jpeg" alt="UPI QR Neha">
   <p>UPI ID:</p>
   <strong>nehamanshad@okhdfcbank</strong>
 
-</a>
+</div>
 
 
   </div>

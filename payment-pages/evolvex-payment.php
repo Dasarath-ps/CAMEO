@@ -31,15 +31,16 @@ $returnLink = '../evolvex.php';
         <h2>Registration Fee</h2>
         <p class="fee">₹100 <span>/ Head</span></p>
 
+
         <div class="upi-options">
 
             <!-- UPI Option -->
-            <a href="upi://pay?pa=benjaminjomy23@oksbi&pn=Benjamin%20Jomy&cu=INR"
+            <div 
             class="upi-card">
                 <img src="../asset/payment-QR/evolvex/benjamin_400.jpeg" alt="UPI QR Benjamin">
                 <p>UPI ID:</p>
                 <strong>benjaminjomy23@oksbi</strong>
-            </a>
+            </div>
             
 
         </div>

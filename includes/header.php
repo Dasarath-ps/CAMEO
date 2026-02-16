@@ -13,7 +13,7 @@
     <nav class="fixed top-0 w-full z-50 transition-all duration-500 py-6" id="navbar">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <!-- Logo -->
-            <a href="" class="text-3xl font-bold font-[Orbitron] tracking-tighter interactive-hover group relative">
+            <a href="/CAMEO/index.php" class="text-3xl font-bold font-[Orbitron] tracking-tighter interactive-hover group relative">
                 <span class="text-white group-hover:text-cyan-400 transition-colors">CAMEO</span>
                 <span class="text-cyan-400 group-hover:text-white transition-colors">.26</span>
                 <div class="absolute -bottom-2 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></div>

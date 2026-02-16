@@ -18,7 +18,7 @@
                 <!-- Stat 2 -->
                 <div class="reveal-element delay-200 group">
                     <div class="text-6xl md:text-7xl font-[Orbitron] font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
-                        ₹<span class="counter" data-target="50.5">0</span>k
+                        ₹<span class="counter" data-target="55">0</span>k
                     </div>
                     <div class="text-slate-500 tracking-widest text-sm uppercase font-bold">Prize Pool</div>
                     <div class="h-[1px] w-0 bg-pink-500 mx-auto mt-4 group-hover:w-full transition-all duration-500"></div>
