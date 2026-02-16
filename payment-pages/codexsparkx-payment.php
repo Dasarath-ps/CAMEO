@@ -1,0 +1,74 @@
+<?php 
+$returnLink = '../codexsparkx.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMEO 2026 | Nirmala College MCA</title>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+
+<body class="antialiased selection:bg-cyan-500 selection:text-black">
+
+    <!-- HEADER -->
+    <?php include '../includes/h<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+eader.php' ?>
+
+    <!-- PAYMENT SECTION -->
+    <section class="payment-section">
+
+        <h2>Registration Fee</h2>
+        <p class="fee"> <span>₹200/ Team</span></p>   
+
+        <div class="upi-options">
+
+            <!-- UPI Option -->
+            <div
+            class="upi-card">
+                <img src="../asset/payment-QR/codexsparkx/dasarthQr.jpg" alt="dasarath Qr">
+                <p>UPI ID:</p>
+                <strong>dhasarathps@okhdfcbank</strong>
+            </div>
+             <!-- UPI Option -->
+            <div 
+            class="upi-card">
+                <img src="../asset/payment-QR/codexsparkx/devikaQr.jpg" alt="devika Qr">
+                <p>UPI ID:</p>
+                <strong>devikadinesh86-2@okaxis</strong>
+</div>
+            
+   
+           </div>
+
+        <p class="payment-note">
+            Complete the payment and submit details below 👇
+        </p>
+
+        <!-- Google Form Button -->
+        <button class="cyber-btn"
+                onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfDhDHwY5S7BGdfORnblgWt16bTQW_xYnB8HcJH4Y0P-hr5kQ/viewform?usp=header')">
+            Submit Payment Details
+        </button>
+
+    </section>
+
+    <!-- FOOTER -->
+    <?php include '../includes/footer.php' ?>
+
+    <!-- JS -->
+    <script src="../js/javaS.js"></script>
+
+</body>
+</html>

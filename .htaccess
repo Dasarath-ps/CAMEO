@@ -1,0 +1,3 @@
+
+ErrorDocument 404 /CAMEO/404.php
+ErrorDocument 403 /CAMEO/404.php
