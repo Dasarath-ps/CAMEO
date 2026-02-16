@@ -203,7 +203,7 @@
 
         <!-- Navigation Buttons -->
         <div class="flex flex-col md:flex-row gap-6">
-            <a href="../index.php" class="cyber-btn interactive-hover text-sm md:text-base">
+            <a href="index.php" class="cyber-btn interactive-hover text-sm md:text-base">
                 Initialize Home
             </a>
         </div>

@@ -41,6 +41,14 @@
               <input type="checkbox" id="agreeCheck">
               <span>I agree to the payment & registration rules</span>
             </li>
+                          <label for="collegeType" style="color:white;">Select College</label>
+<br><br>
+
+<select id="collegeType">
+  <option value="">Select College</option>
+  <option value="nirmala">Nirmala College</option>
+  <option value="other">Other College</option>
+</select>
           </ul>
         </div>
 
@@ -122,6 +130,7 @@
         <div class="event-rules-card">
           <h3>RULES & REGULATIONS</h3>
           <ul>
+            <li>Student from nirmala college can not participate.</li>
             <li>Each team must have <strong>4 members from the same college</strong>.</li>
             <li>Each participant can join <strong>only one team</strong>.</li>
             <li>Carry your <strong>college ID card</strong> during the event.</li>

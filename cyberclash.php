@@ -129,6 +129,21 @@ include 'includes/header.php';
             <input type="checkbox" id="agree-pubg" class="agreement-checkbox">
             <span>I agree to the payment & registration rules</span>
           </li>
+          <li>
+            <li>
+
+            <select id="college-pubg" style="
+       padding:8px;
+       background:#111;
+       color:white;
+       border:1px solid #444;
+       border-radius:6px;">
+     <option value="">Select College</option>
+     <option value="nirmala">Nirmala College</option>
+     <option value="other">Other College</option>
+   </select>
+          </li>
+          </li>
         </ul>
       </div>
 
@@ -157,6 +172,7 @@ include 'includes/header.php';
       <div class="event-rules-card">
         <h3>RULES & REGULATIONS</h3>
         <ul>
+          <li>Student from nirmala college can not participate.</li>
           <li>Mode: <strong>TDM (2 VS 2)</strong></li>
           <li>Registration Fee: <strong>₹100 per team</strong></li>
           <li>Tournament starts at <strong>11:00 AM</strong></li>
@@ -195,6 +211,21 @@ include 'includes/header.php';
             <input type="checkbox" id="agree-efootball" class="agreement-checkbox">
             <span>I agree to the payment & registration rules</span>
           </li>
+          <li>
+            <li>
+
+            <select id="college-efootball" style="
+       padding:8px;
+       background:#111;
+       color:white;
+       border:1px solid #444;
+       border-radius:6px;">
+     <option value="">Select College</option>
+     <option value="nirmala">Nirmala College</option>
+     <option value="other">Other College</option>
+   </select>
+          </li>
+          </li>
         </ul>
       </div>
 
@@ -223,6 +254,7 @@ include 'includes/header.php';
       <div class="event-rules-card">
         <h3>RULES & REGULATIONS</h3>
         <ul>
+          <li>Student from nirmala college can not participate.</li>
           <li>Registration Fee: <strong>₹50 per head</strong></li>
           <li>Event begins at <strong>11:00 AM</strong></li>
           <li>Match Duration: <strong>8 minutes</strong></li>
@@ -260,8 +292,21 @@ include 'includes/header.php';
           <li>
             <input type="checkbox" id="agree-minimilitia" class="agreement-checkbox">
             <span>I agree to the payment & registration rules</span>
+          </li><li>
+
+            <select id="college-minimilitia" style="
+       padding:8px;
+       background:#111;
+       color:white;
+       border:1px solid #444;
+       border-radius:6px;">
+     <option value="">Select College</option>
+     <option value="nirmala">Nirmala College</option>
+     <option value="other">Other College</option>
+   </select>
           </li>
         </ul>
+        
       </div>
 
       <div class="event-poster-buttons">
@@ -289,6 +334,7 @@ include 'includes/header.php';
       <div class="event-rules-card">
         <h3>RULES & REGULATIONS</h3>
         <ul>
+          <li>Student from nirmala college can not participate.</li>
           <li>Team Size: <strong>3 Members</strong></li>
           <li>3 Teams per match</li>
           <li>3 Matches per team</li>
@@ -348,35 +394,44 @@ function switchGame(gameId) {
         console.error('Section not found:', gameId);
     }
 }
-
-// Registration handler
 function registerNow(button) {
     var game = button.getAttribute('data-game');
     var section = button.getAttribute('data-section');
-    
-    console.log('Register clicked:', game, section);
-    
+
     var checkbox = document.getElementById('agree-' + section);
-    
+
     if (!checkbox) {
-        console.error('Checkbox not found for:', section);
         alert('Error: Please refresh the page');
         return;
     }
-    
-    console.log('Checkbox checked:', checkbox.checked);
-    
+
     if (!checkbox.checked) {
         showPopup();
         return;
     }
-    
-    // Redirect to payment page
-    var url = 'payment-pages/' + game + '-payment.php';
-    console.log('Redirecting to:', url);
-    
-    window.location.href = url;
+
+    var collegeSelect = document.getElementById('college-' + section);
+
+    if (!collegeSelect) {
+        alert("College selection not found.");
+        return;
+    }
+
+    var collegeType = collegeSelect.value;
+
+    if (!collegeType) {
+        alert("Please select your college.");
+        return;
+    }
+
+    if (collegeType === "nirmala") {
+        alert("Nirmala College students are not allowed to participate in Cyber Clash.");
+        return;
+    }
+
+    window.location.href = 'payment-pages/' + game + '-payment.php';
 }
+
 
 // Popup functions
 function showPopup() {

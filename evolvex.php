@@ -35,6 +35,15 @@
               <input type="checkbox" id="agreeCheck">
               <span>I agree to the payment & registration rules</span>
             </li>
+
+                         
+
+<select id="collegeType">
+  <option value="">Select College</option>
+  <option value="nirmala">Nirmala College</option>
+  <option value="other">Other College</option>
+</select>
+            
           </ul>
         </div>
 
@@ -47,6 +56,7 @@
             <li><input type="radio" name="teamSize" id="member4" value="4"> <span>4 Members</span></li>
           </ul>
         </div>
+        
 
         <!-- Validation Popup -->
         <div id="agreePopup" class="popup hidden">
@@ -85,6 +95,7 @@
         <div class="event-rules-card">
           <h3>RULES & REGULATIONS</h3>
           <ul>
+            <li>Student from nirmala college can not participate.</li>
             <li>All participants must adhere to <strong>Cameo 2026 general rules</strong>.</li>
             <li>The hackathon is a <strong>6-hour continuous event</strong>.</li>
             <li>Each team must consist of <strong>2 – 4 members</strong>.</li>
@@ -120,32 +131,83 @@
 
   <!-- JavaScript -->
   <script>
-  function handleRegister(eventName) {
-    const agreeCheck = document.getElementById("agreeCheck");
-    const teamSize = document.querySelector('input[name="teamSize"]:checked');
-    const popup = document.getElementById("agreePopup");
-    const popupMessage = document.getElementById("popupMessage");
+function handleRegister(eventName) {
 
-    if (!agreeCheck.checked) {
-      popupMessage.textContent = "⚠ Please agree to the payment & registration rules";
-      popup.classList.remove("hidden");
-      return;
-    }
-    if (!teamSize) {
-      popupMessage.textContent = "⚠ Please select a team size (2, 3, or 4 members)";
-      popup.classList.remove("hidden");
-      return;
+  const nirmalaNotAllowedEvents = [
+    "codexsparkx",
+    "styleformerx",
+    "pixora",
+    "evolvex",
+    "cyberclash",
+    "optiquest",
+  ];
+
+  const noCollegeRequired = ["zyreel", "bytebeatzz"];
+
+  const agreeCheck = document.getElementById("agreeCheck");
+  const popup = document.getElementById("agreePopup");
+  const popupMessage = document.getElementById("popupMessage");
+
+  // ✅ Agreement check
+  if (!agreeCheck.checked) {
+    popupMessage.textContent = "⚠ Please agree to the payment & registration rules";
+    popup.classList.remove("hidden");
+    return;
+  }
+
+  // ✅ College restriction (if needed)
+  if (!noCollegeRequired.includes(eventName)) {
+
+    const collegeType = document.getElementById("collegeType").value;
+
+    if (!collegeType) {
+      alert("Please select your college.");
+    return;
     }
 
-    // Redirect immediately based on team size
-    if (teamSize.value === "2") {
-      window.location.href = "payment-pages/evolvex2-payment.php"; // Replace with your URL
-    } else if (teamSize.value === "3") {
-      window.location.href = "payment-pages/evolvex1-payment.php"; // Replace with your URL
-    } else if (teamSize.value === "4") {
-      window.location.href = "payment-pages/evolvex-payment.php"; // Replace with your URL
+    if (
+      collegeType === "nirmala" &&
+      nirmalaNotAllowedEvents.includes(eventName)
+    ) {
+      alert(
+      "Nirmala College students are not allowed to participate in this event.",
+    );
+    return;
     }
   }
+
+  // ✅ Special team size logic only for evolvex
+  if (eventName === "evolvex") {
+
+    const teamSize = document.querySelector('input[name="teamSize"]:checked');
+
+    if (!teamSize) {
+      popupMessage.textContent =
+        "⚠ Please select a team size (2, 3, or 4 members)";
+      popup.classList.remove("hidden");
+      return;
+    }
+
+    if (teamSize.value === "2") {
+      window.location.href = "payment-pages/evolvex2-payment.php";
+      return;
+    }
+
+    if (teamSize.value === "3") {
+      window.location.href = "payment-pages/evolvex1-payment.php";
+      return;
+    }
+
+    if (teamSize.value === "4") {
+      window.location.href = "payment-pages/evolvex-payment.php";
+      return;
+    }
+  }
+
+  // ✅ Normal redirect for other events
+  window.location.href = `payment-pages/${eventName}-payment.php`;
+}
+
 
   function closePopup() {
     document.getElementById("agreePopup").classList.add("hidden");

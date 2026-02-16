@@ -41,6 +41,15 @@
               <input type="checkbox" id="agreeCheck">
               <span>I agree to the payment & registration rules</span>
             </li>
+             <label for="collegeType" style="color:white;">Select College</label>
+<br><br>
+
+<select id="collegeType">
+  <option value="">Select College</option>
+  <option value="nirmala">Nirmala College</option>
+  <option value="other">Other College</option>
+</select>
+
           </ul>
         </div>
 
@@ -115,6 +124,7 @@
         <div class="event-rules-card">
           <h3>RULES & GUIDELINES</h3>
           <ul>
+            <li>Student from nirmala college can not participate.</li>
             <li>Registration open to <strong>all participants</strong>.</li>
             <li>Each participant may submit <strong>only one entry</strong>.</li>
             <li>Photos must be taken using a <strong>smartphone</strong>.</li>

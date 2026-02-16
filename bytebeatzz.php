@@ -38,6 +38,7 @@
         <input type="checkbox" id="agreeCheck" >
         <span>I agree to the payment & registration rules</span>
       </li>
+      
     </ul>
   </div>
 
@@ -112,6 +113,7 @@ share
       <div class="event-rules-card">
         <h3>RULES & REGULATIONS</h3>
         <ul>
+          <li>Student from nirmala college can not participate.</li>
           <li>Single participant event.</li>
           <li>Competition consists of <strong>3 rounds</strong>.</li>
           <li>Registration fee: <strong>₹100</strong>.</li>

@@ -633,8 +633,20 @@ function shareOptiQuest() {
     alert("Sharing is not supported on this browser.");
   }
 }
+function handleRegisterClick(eventName) {
+  // ❌ NOT allowed for Nirmala students
+  const nirmalaNotAllowedEvents = [
+    "codexsparkx",
+    "styleformerx",
+    "pixora",
+    "evolvex",
+    "cyberclash",
+    "optiquest",
+  ];
 
-function handleRegisterClick(value) {
+  // ✅ No college selection needed
+  const noCollegeRequired = ["zyreel", "bytebeatzz"];
+
   const agreeCheck = document.getElementById("agreeCheck");
 
   if (!agreeCheck.checked) {
@@ -642,7 +654,32 @@ function handleRegisterClick(value) {
     return;
   }
 
-  window.location.href = `payment-pages/${value}-payment.php`;
+  // ✅ If event doesn't need college → allow directly
+  if (noCollegeRequired.includes(eventName)) {
+    window.location.href = `payment-pages/${eventName}-payment.php`;
+    return;
+  }
+
+  const collegeType = document.getElementById("collegeType").value;
+
+  if (!collegeType) {
+    alert("Please select your college.");
+    return;
+  }
+
+  // 🔥 Block Nirmala students from restricted events
+  if (
+    collegeType === "nirmala" &&
+    nirmalaNotAllowedEvents.includes(eventName)
+  ) {
+    alert(
+      "Nirmala College students are not allowed to participate in this event.",
+    );
+    return;
+  }
+
+  // ✅ Otherwise allow
+  window.location.href = `payment-pages/${eventName}-payment.php`;
 }
 
 function closePopup() {
